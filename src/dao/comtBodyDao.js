@@ -1,5 +1,6 @@
 const db = require('../utils/dbConnPool/mariadb');
 
+// 获取评论体
 exports.getComtBody = async (cbId) => {
     const sql = `
         SELECT 
@@ -10,29 +11,46 @@ exports.getComtBody = async (cbId) => {
             cb_id = ?
     `;
     const sqlParams = [cbId];
-    return await db.query(sql, sqlParams);
-};
-exports.createComtBody = async (cbId, cbimg, cbtext, cbtitle) => {
-    const sql = `
-        INSERT 
-        INTO 
-        e_comt_body (cb_id, cb_img, cb_text, cb_title)
-        VALUES (?, ?, ?, ?)
-    `;
-    const sqlParams = [cbId, cbimg, cbtext, cbtitle];
-    return await db.query(sql, sqlParams);
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in getComtBody:', error);
+        throw error;
+    }
 };
 
-exports.modifyComtBody = async (cbId, cbimg, cbtext, cbtitle) => {
+// 创建评论体
+exports.createComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
+    const sql = `
+        INSERT INTO e_comt_body (cb_id, cb_img, cb_text, cb_title, user_id)
+        VALUES (?, ?, ?, ?, ?)
+    `;
+    const sqlParams = [cbId, cbImg, cbText, cbTitle, userId];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in createComtBody:', error);
+        throw error;
+    }
+};
+
+// 修改评论体
+exports.modifyComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
     const sql = `
         UPDATE e_comt_body
         SET 
             cb_img = ?,
             cb_text = ?,
-            cb_title = ?
+            cb_title = ?,
+            user_id = ?
         WHERE
             cb_id = ?
     `;
-    const sqlParams = [cbimg, cbtext, cbtitle, cbId];
-    return await db.query(sql, sqlParams);
+    const sqlParams = [cbImg, cbText, cbTitle, userId, cbId];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in modifyComtBody:', error);
+        throw error;
+    }
 };
