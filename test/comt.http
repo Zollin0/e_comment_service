@@ -1,0 +1,8 @@
+###查询评论信息接口
+POST http://127.0.0.1:33001/api/comt/getComt
+Content-Type: application/json
+
+{
+    "cbId":1,
+    "comtId":1
+}

@@ -20,6 +20,7 @@ app.use(require('./src/middleware/responseFormat'));
 // 路由规则
 app.use('/api/user', require('./src/controller/userController'));
 app.use('/api/comtBody', require('./src/controller/comtBodyController'));
+app.use('/api/comt', require('./src/controller/comtController'));
 
 // 导入服务器配置
 const server_conf = require('config').get('serverConfig');
