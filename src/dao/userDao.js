@@ -1,39 +1,18 @@
 const db = require('../utils/dbConnPool/mariadb');
 
-exports.getUserList = async () => {
+exports.getUserInfor = async (userId) => {
     const sql = `
-        SELECT
+        SELECT 
             user_id AS userId,
-            user_name AS userName
-        FROM
-            user_info
-    `;
-    return await db.query(sql);
-};
-
-exports.addqrContent = async (upurl, qrName, userId, codeUrl) => {
-    const sql = `
-        INSERT INTO 
-            qr_code_table (QR_content_code_url, QR_code_name, user_id, QR_code_url) 
-        VALUES 
-            (?, ?, ?, ?);
-    `;
-    const sqlParams = [upurl, qrName, userId, codeUrl];
-    return await db.query(sql, sqlParams);
-};
-
-exports.getSex = async (sex) => {
-    const sql = `
-        SELECT
-            user_id AS userId,
-            user_name AS userName,
-            gender
-            
-        FROM
-            user_info
+            user_nickname AS userNickname,
+            user_account AS userAccount,
+            user_password AS userPassword,
+            user_head AS userHead
+        FROM 
+            e_user
         WHERE
-            gender = ?
+            user_id = ?
     `;
-    const sqlParams = [sex];
+    const sqlParams = [userId];
     return await db.query(sql, sqlParams);
 };
