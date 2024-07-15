@@ -3,5 +3,27 @@ POST http://127.0.0.1:33001/api/comtBody/getComtBody
 Content-Type: application/json
 
 {
-    "cbId":1
+    "cbId":2
+}
+###创建评论体接口
+POST http://127.0.0.1:33001/api/comtBody/createComtBody
+Content-Type: application/json
+
+{
+    "cbId":3,
+    "cbImg":"http://222.com",
+    "cbText":"广东医牛逼",
+    "cbTitle":"广东医",
+    "userId":1
+}
+###修改评论体接口
+POST http://127.0.0.1:33001/api/comtBody/modifyComtBody
+Content-Type: application/json
+
+{
+    "cbId":2,
+    "cbImg":"http://2222.com",
+    "cbText":"广东医666",
+    "cbTitle":"广东医888",
+    "userId":1
 }
