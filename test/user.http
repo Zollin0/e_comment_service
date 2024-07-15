@@ -1,0 +1,25 @@
+### 获取用户列表
+POST http://127.0.0.1:33001/api/user/getUserList
+Content-Type: application/json
+
+
+
+###
+
+POST http://127.0.0.1:33660/api/user/addqrContent
+Content-Type: application/json
+
+{
+    "upurl":123124,
+    "qrName":11,
+    "userId":22,
+    "codeUrl":12341
+}
+
+###
+POST http://127.0.0.1:33660/api/user/getSex
+Content-Type: application/json
+
+{
+    "sex": "0"
+}
