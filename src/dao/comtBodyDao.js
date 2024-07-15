@@ -1,14 +1,14 @@
 const db = require('../utils/dbConnPool/mariadb');
 
-exports.getUserInfor = async (userId) => {
+exports.getComtBody = async (cbId) => {
     const sql = `
         SELECT 
             *
         FROM 
-            e_user
+            e_comt_body
         WHERE
-            user_id = ?
+            cb_id = ?
     `;
-    const sqlParams = [userId];
+    const sqlParams = [cbId];
     return await db.query(sql, sqlParams);
 };
