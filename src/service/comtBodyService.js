@@ -4,3 +4,13 @@ exports.getComtBody = async (cbId) => {
     const comtBody = await comtBodyDao.getComtBody(cbId);
     return comtBody;
 };
+
+exports.createComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
+    const comtBody = await comtBodyDao.createComtBody(cbId, cbImg, cbText, cbTitle, userId);
+    return comtBody;
+};
+
+exports.modifyComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
+    const comtBody = await comtBodyDao.modifyComtBody(cbId, cbImg, cbText, cbTitle, userId);
+    return comtBody;
+};
