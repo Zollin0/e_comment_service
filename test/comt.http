@@ -4,5 +4,47 @@ Content-Type: application/json
 
 {
     "cbId":1,
-    "comtId":1
+    "comtId":2
+}
+###新增评论接口
+POST http://127.0.0.1:33001/api/comt/createComt
+Content-Type: application/json
+
+{
+    "cbId":1,
+    "comtId":2,
+    "text":"测试评论",
+    "userId":1
+}
+###删除评论接口
+POST http://127.0.0.1:33001/api/comt/deleteComt
+Content-Type: application/json
+
+{
+    "cbId":1,
+    "comtId":2
+}
+###获赞接口
+POST http://127.0.0.1:33001/api/comt/thumbsUp
+Content-Type: application/json
+
+{
+    "comtId":2,
+    "cbId":1
+}
+###取消点赞接口
+POST http://127.0.0.1:33001/api/comt/cancelThumbsUp
+Content-Type: application/json
+
+{
+    "comtId":2,
+    "cbId":1
+}
+###获取历史评论接口 
+POST http://127.0.0.1:33001/api/comt/getHistoryComt
+Content-Type: application/json
+
+{
+    "cbId": 1,
+    "userId": 1
 }
