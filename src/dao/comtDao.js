@@ -15,7 +15,7 @@ exports.getComt = async (cbId, comtId) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in getComt:', error);
+        console.error('查询评论信息失败:', error);
         throw error;
     }
 };
@@ -43,7 +43,7 @@ exports.createComt = async (cbId, comtId, text, userId) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in createComt:', error);
+        console.error('创建评论失败:', error);
         throw error;
     }
 };
@@ -61,7 +61,7 @@ exports.deleteComt = async (cbId, comtId) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in deleteComt:', error);
+        console.error('删除评论失败:', error);
     }
 };
 
@@ -84,7 +84,7 @@ exports.updateThumbsUp = async (comtId, cbId) => {
         const result = await db.query(sqlSelect, sqlParams);
         return result[0].thumbs_up;
     } catch (error) {
-        console.error('Error in updateThumbsUp:', error);
+        console.error('点赞失败:', error);
         throw error;
     }
 };
@@ -107,7 +107,7 @@ exports.cancelThumbsUp = async (comtId, cbId) => {
         const result = await db.query(sqlSelect, sqlParams);
         return result[0].thumbs_up;
     } catch (error) {
-        console.error('Error in cancelThumbsUp:', error);
+        console.error('取消点赞失败:', error);
         throw error;
     }
 };
@@ -131,7 +131,7 @@ exports.getHistoryComt = async (cbId, userId) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in getHistoryComt:', error);
+        console.error('查询历史评论失败:', error);
         throw error;
     }
 };

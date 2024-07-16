@@ -38,7 +38,7 @@ exports.createQuestion = async (cbId, userId, questionId, text) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in createComt:', error);
+        console.error('创建新提问失败:', error);
         throw error;
     }
 };

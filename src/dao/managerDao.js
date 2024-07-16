@@ -35,7 +35,7 @@ exports.createManager = async (managerId, managerAccount, managerPassword) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in createComt:', error);
+        console.error('创建新管理员账号失败:', error);
         throw error;
     }
 };

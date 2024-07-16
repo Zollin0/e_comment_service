@@ -35,7 +35,7 @@ exports.createScore = async (cbId, scoreId, score) => {
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('Error in createComt:', error);
+        console.error('创建新评论体评分失败:', error);
         throw error;
     }
 };
