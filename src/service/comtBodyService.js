@@ -17,3 +17,8 @@ exports.modifyComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
     const comtBody = await comtBodyDao.modifyComtBody(cbId, cbImg, cbText, cbTitle, userId);
     return comtBody;
 };
+//删除评论体信息
+exports.deleteComtBody = async (cbId) => {
+    const comtBody = await comtBodyDao.deleteComtBody(cbId);
+    return comtBody;
+};
