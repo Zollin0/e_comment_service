@@ -5,3 +5,13 @@ Content-Type: application/json
 {
     "managerId":"1"
 }
+
+###创建新管理员接口
+POST http://127.0.0.1:33001/api/manager/createManager
+Content-Type: application/json
+
+{
+    "managerId":"2",
+    "managerAccount":"admin02",
+    "managerPassword":"123456"
+}

@@ -5,3 +5,13 @@ Content-Type: application/json
 {
     "cbId":"1"
 }
+
+###新建评论体评分接口
+POST http://127.0.0.1:33001/api/score/createScore
+Content-Type: application/json
+
+{
+    "cbId":"1",
+    "scoreId":"2",
+    "score":"5"
+}

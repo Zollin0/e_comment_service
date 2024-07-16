@@ -7,3 +7,7 @@ exports.getManager = async (managerId) => {
 };
 
 //创建新管理员
+exports.createManager = async (managerId, managerAccount, managerPassword) => {
+    const manager = await managerDao.createManager(managerId, managerAccount, managerPassword);
+    return manager;
+};

@@ -13,3 +13,29 @@ exports.getScore = async (cbId) => {
     const sqlParams = [cbId];
     return await db.query(sql, sqlParams);
 };
+
+//创建新评论体评分（给某一评论体新增打分）
+exports.createScore = async (cbId, scoreId, score) => {
+    const sql = `
+        INSERT INTO 
+            e_score
+        (
+            cb_id,
+            score_id,
+            score
+        )
+        VALUES
+        (
+            ?,
+            ?,
+            ?
+        )
+    `;
+    const sqlParams = [cbId, scoreId, score];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in createComt:', error);
+        throw error;
+    }
+};

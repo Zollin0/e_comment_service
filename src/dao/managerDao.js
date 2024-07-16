@@ -13,3 +13,29 @@ exports.getManager = async (managerId) => {
     const sqlParams = [managerId];
     return await db.query(sql, sqlParams);
 };
+
+// 创建新管理员
+exports.createManager = async (managerId, managerAccount, managerPassword) => {
+    const sql = `
+        INSERT INTO 
+            e_managers
+        (
+            manager_id,
+            manager_account,
+            manager_password
+        )
+        VALUES
+        (
+            ?,
+            ?,
+            ?
+        )
+    `;
+    const sqlParams = [managerId, managerAccount, managerPassword];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in createComt:', error);
+        throw error;
+    }
+};

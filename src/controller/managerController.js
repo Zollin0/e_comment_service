@@ -10,3 +10,7 @@ router.post('/getManager', async (req, res, next) => {
 });
 
 //创建新管理员
+router.post('/createManager', async (req, res, next) => {
+    const result = await managerService.createManager(req.body.managerId, req.body.managerAccount, req.body.managerPassword);
+    res.ResultVO(0, '成功', result);
+});

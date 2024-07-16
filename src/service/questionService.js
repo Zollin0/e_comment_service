@@ -7,3 +7,7 @@ exports.getQuestion = async (cbId, questionId) => {
 };
 
 //创建新提问
+exports.createQuestion = async (cbId, userId, questionId, text) => {
+    const question = await questionDao.createQuestion(cbId, userId, questionId, text);
+    return question;
+};

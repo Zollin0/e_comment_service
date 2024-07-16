@@ -64,6 +64,7 @@ exports.deleteComt = async (cbId, comtId) => {
         console.error('Error in deleteComt:', error);
     }
 };
+
 // 更新评论获赞数
 exports.updateThumbsUp = async (comtId, cbId) => {
     const sqlUpdate = `
@@ -110,6 +111,7 @@ exports.cancelThumbsUp = async (comtId, cbId) => {
         throw error;
     }
 };
+
 // 查询历史评论
 exports.getHistoryComt = async (cbId, userId) => {
     const sql = `

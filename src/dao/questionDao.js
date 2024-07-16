@@ -14,3 +14,31 @@ exports.getQuestion = async (cbId, questionId) => {
     const sqlParams = [cbId, questionId];
     return await db.query(sql, sqlParams);
 };
+
+//创建新提问
+exports.createQuestion = async (cbId, userId, questionId, text) => {
+    const sql = `
+        INSERT INTO 
+            e_questions
+        (
+            cb_id,
+            user_id,
+            question_id,
+            text
+        )
+        VALUES
+        (
+            ?,
+            ?,
+            ?,
+            ?
+        )
+    `;
+    const sqlParams = [cbId, userId, questionId, text];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in createComt:', error);
+        throw error;
+    }
+};

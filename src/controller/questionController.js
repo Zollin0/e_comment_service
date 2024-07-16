@@ -10,3 +10,7 @@ router.post('/getQuestion', async (req, res, next) => {
 });
 
 //创建新提问
+router.post('/createQuestion', async (req, res, next) => {
+    const result = await questionService.createQuestion(req.body.cbId, req.body.userId, req.body.questionId, req.body.text);
+    res.ResultVO(0, '成功', result);
+});
