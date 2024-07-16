@@ -26,11 +26,13 @@ router.post('/ThumbsUp', async (req, res, next) => {
     const thumbsUp = await comtService.updateThumbsUp(req.body.comtId, req.body.cbId);
     res.ResultVO(0, '成功', { thumbsUp });
 });
+
 // 取消点赞评论
 router.post('/cancelThumbsUp', async (req, res) => {
     const thumbsUp = await comtService.cancelThumbUp(req.body.comtId, req.body.cbId);
     res.ResultVO(0, '成功', { thumbsUp });
 });
+
 //查询历史评论
 router.post('/getHistoryComt', async (req, res) => {
     const result = await comtService.getHistoryComt(req.body.cbId, req.body.userId);

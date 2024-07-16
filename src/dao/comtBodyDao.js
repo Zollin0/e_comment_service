@@ -1,6 +1,6 @@
 const db = require('../utils/dbConnPool/mariadb');
 
-// 获取评论体
+// 获取评论体信息
 exports.getComtBody = async (cbId) => {
     const sql = `
         SELECT 
@@ -34,7 +34,7 @@ exports.createComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
     }
 };
 
-// 修改评论体
+// 修改评论体信息
 exports.modifyComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
     const sql = `
         UPDATE e_comt_body

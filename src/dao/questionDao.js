@@ -1,5 +1,6 @@
 const db = require('../utils/dbConnPool/mariadb');
 
+//获取提问信息
 exports.getQuestion = async (cbId, questionId) => {
     const sql = `
         SELECT 

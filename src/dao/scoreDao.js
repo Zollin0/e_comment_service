@@ -1,5 +1,6 @@
 const db = require('../utils/dbConnPool/mariadb');
 
+//获取评论体评分
 exports.getScore = async (cbId) => {
     const sql = `
         SELECT 

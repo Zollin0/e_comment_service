@@ -1,4 +1,4 @@
-###查询评论信息接口
+###查询提问接口
 POST http://127.0.0.1:33001/api/question/getQuestion
 Content-Type: application/json
 
