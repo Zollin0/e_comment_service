@@ -1,0 +1,7 @@
+###查询评论信息接口
+POST http://127.0.0.1:33001/api/manager/getManager
+Content-Type: application/json
+
+{
+    "managerId":"1"
+}
