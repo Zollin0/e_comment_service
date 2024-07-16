@@ -29,3 +29,10 @@ Content-Type: application/json
     "cbTitle":"广东医888 ",
     "userId":1
 }
+###删除评论体接口
+POST http://127.0.0.1:33001/api/comtBody/deleteComtBody
+Content-Type: application/json
+
+{
+    "cbId": 1
+}

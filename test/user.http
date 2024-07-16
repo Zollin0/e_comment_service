@@ -11,7 +11,7 @@ POST http://127.0.0.1:33001/api/user/createUser
 Content-Type: application/json
 
 {
-    "userId":2,
+    "userId":9,
     "userAccount":"text_02",
     "userPassword":"123456"
 }

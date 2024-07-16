@@ -20,3 +20,9 @@ router.post('/modifyComtBody', async (req, res, next) => {
     const result = await comtBodyService.modifyComtBody(req.body.cbId, req.body.cbImg, req.body.cbText, req.body.cbTitle, req.body.userId);
     res.ResultVO(0, '成功', result);
 });
+
+//删除评论体信息
+router.post('/deleteComtBody', async (req, res, next) => {
+    const result = await comtBodyService.deleteComtBody(req.body.cbId);
+    res.ResultVO(0, '成功', result);
+});

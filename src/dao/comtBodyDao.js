@@ -54,3 +54,17 @@ exports.modifyComtBody = async (cbId, cbImg, cbText, cbTitle, userId) => {
         throw error;
     }
 };
+// 删除评论体信息
+exports.deleteComtBody = async (cbId) => {
+    const sql = `
+        DELETE FROM e_comt_body
+        WHERE
+            cb_id = ?
+    `;
+    const sqlParams = [cbId];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('Error in deleteComtBody:', error);
+    }
+};
