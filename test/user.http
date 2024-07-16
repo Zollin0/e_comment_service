@@ -5,3 +5,13 @@ Content-Type: application/json
 {
     "userId":1
 }
+
+###创建新用户接口
+POST http://127.0.0.1:33001/api/user/createUser
+Content-Type: application/json
+
+{
+    "userId":2,
+    "userAccount":"text_02",
+    "userPassword":"123456"
+}

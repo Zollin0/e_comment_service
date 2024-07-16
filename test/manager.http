@@ -1,0 +1,17 @@
+###查询管理员信息接口
+POST http://127.0.0.1:33001/api/manager/getManager
+Content-Type: application/json
+
+{
+    "managerId":"1"
+}
+
+###创建新管理员接口
+POST http://127.0.0.1:33001/api/manager/createManager
+Content-Type: application/json
+
+{
+    "managerId":"2",
+    "managerAccount":"admin02",
+    "managerPassword":"123456"
+}

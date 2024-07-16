@@ -5,6 +5,7 @@ Content-Type: application/json
 {
     "cbId":2
 }
+
 ###创建评论体接口
 POST http://127.0.0.1:33001/api/comtBody/createComtBody
 Content-Type: application/json
@@ -16,6 +17,7 @@ Content-Type: application/json
     "cbTitle":"广东医213",
     "userId":1
 }
+
 ###修改评论体接口
 POST http://127.0.0.1:33001/api/comtBody/modifyComtBody
 Content-Type: application/json

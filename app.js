@@ -18,9 +18,12 @@ app.use(require('./src/middleware/errorHandler'));
 app.use(require('./src/middleware/responseFormat'));
 
 // 路由规则
-app.use('/api/user', require('./src/controller/userController'));
-app.use('/api/comtBody', require('./src/controller/comtBodyController'));
-app.use('/api/comt', require('./src/controller/comtController'));
+app.use('/api/user', require('./src/controller/userController.js')); //用户
+app.use('/api/comtBody', require('./src/controller/comtBodyController.js')); //评论体
+app.use('/api/comt', require('./src/controller/comtController.js')); //评论
+app.use('/api/score', require('./src/controller/scoreController.js')); //评论体评分
+app.use('/api/question', require('./src/controller/questionController.js')); //提问
+app.use('/api/manager', require('./src/controller/managerController.js')); //管理员
 
 // 导入服务器配置
 const server_conf = require('config').get('serverConfig');
