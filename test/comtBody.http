@@ -11,7 +11,7 @@ POST http://127.0.0.1:33001/api/comtBody/createComtBody
 Content-Type: application/json
 
 {
-    "cbId":4,
+    "cbId":9,
     "cbImg":"http://22225.com",
     "cbText":"广东医123",
     "cbTitle":"广东医213",

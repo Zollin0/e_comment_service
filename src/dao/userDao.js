@@ -1,28 +1,25 @@
 const db = require('../utils/dbConnPool/mariadb');
 
 //获取用户信息
-exports.getUserInfor = async (userId) => {
+exports.getAllUsers = async () => {
     const sql = `
         SELECT 
             *
         FROM 
-            e_user
-        WHERE
-            user_id = ?
+            yi_user
     `;
-    const sqlParams = [userId];
-    return await db.query(sql, sqlParams);
+    return await db.query(sql);
 };
 
 // 创建新用户
-exports.createUser = async (userId, userAccount, userPassword) => {
+exports.createUser = async (userId, account, password) => {
     const sql = `
         INSERT INTO 
-            e_user
+            yi_user
         (
             user_id,
-            user_account,
-            user_password
+            account,
+            password
         )
         VALUES
         (
@@ -31,7 +28,7 @@ exports.createUser = async (userId, userAccount, userPassword) => {
             ?
         )
     `;
-    const sqlParams = [userId, userAccount, userPassword];
+    const sqlParams = [userId, account, password];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {

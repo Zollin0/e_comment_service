@@ -2,16 +2,13 @@
 POST http://127.0.0.1:33001/api/user/getUserInfor
 Content-Type: application/json
 
-{
-    "userId":1
-}
 
 ###创建新用户接口
 POST http://127.0.0.1:33001/api/user/createUser
 Content-Type: application/json
 
 {
-    "userId":9,
-    "userAccount":"text_02",
-    "userPassword":"123456"
+    "userId":"0190c9e4-684a-7070-a326-d0b5c07d65b1",
+    "account":"text_02",
+    "password":"123456"
 }
