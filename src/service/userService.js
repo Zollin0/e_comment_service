@@ -1,5 +1,11 @@
 const userDao = require('../dao/userDao');
 
+//登录
+exports.getUser = async (account, password) => {
+    const user = await userDao.getUser(account, password);
+    return user;
+};
+
 //查询用户信息
 exports.getAllUsers = async () => {
     const users = await userDao.getAllUsers();

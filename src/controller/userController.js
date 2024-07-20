@@ -3,6 +3,11 @@ module.exports = router;
 
 const userService = require('../service/userService');
 
+//登录功能
+router.post('/getUser', async (req, res, next) => {
+    const result = await userService.getUser(req.body.account, req.body.password);
+    res.ResultVO(0, '成功', result);
+});
 //查询用户信息
 router.post('/getUserInfor', async (req, res, next) => {
     try {
