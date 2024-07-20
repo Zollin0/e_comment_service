@@ -13,7 +13,7 @@ exports.getAllUsers = async () => {
 };
 
 //创建新用户
-exports.createUser = async (userId, account, password) => {
-    const createuser = await userDao.createUser(userId, account, password);
+exports.createUser = async (account, password) => {
+    const createuser = await userDao.createUser(account, password);
     return createuser;
 };

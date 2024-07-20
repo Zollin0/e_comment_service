@@ -1,4 +1,8 @@
 const db = require('../utils/dbConnPool/mariadb');
+
+// 引入 UUIDv7 生成器
+const { v7: uuidv7 } = require('uuid');
+
 //登录
 exports.getUser = async (account, password) => {
     const sql = `
@@ -25,23 +29,25 @@ exports.getAllUsers = async () => {
 };
 
 // 创建新用户
-exports.createUser = async (userId, account, password) => {
+exports.createUser = async (account, password) => {
     const sql = `
         INSERT INTO 
             yi_user
         (
             user_id,
             account,
-            password
+            password,
+            created_at
         )
         VALUES
         (
             ?,
             ?,
-            ?
+            ?,
+            NOW()
         )
     `;
-    const sqlParams = [userId, account, password];
+    const sqlParams = [uuidv7(), account, password];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {

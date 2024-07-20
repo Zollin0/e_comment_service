@@ -8,6 +8,7 @@ router.post('/getUser', async (req, res, next) => {
     const result = await userService.getUser(req.body.account, req.body.password);
     res.ResultVO(0, '成功', result);
 });
+
 //查询用户信息
 router.post('/getUserInfor', async (req, res, next) => {
     try {
@@ -20,6 +21,6 @@ router.post('/getUserInfor', async (req, res, next) => {
 
 //创建新用户
 router.post('/createUser', async (req, res, next) => {
-    const result = await userService.createUser(req.body.userId, req.body.account, req.body.password);
+    const result = await userService.createUser(req.body.account, req.body.password);
     res.ResultVO(0, '成功', result);
 });
