@@ -1,4 +1,17 @@
 const db = require('../utils/dbConnPool/mariadb');
+//登录
+exports.getUser = async (account, password) => {
+    const sql = `
+        SELECT 
+            *
+        FROM 
+            yi_user
+        WHERE 
+            account = ? AND password = ?
+    `;
+    const sqlParams = [account, password];
+    return await db.query(sql, sqlParams);
+};
 
 //获取用户信息
 exports.getAllUsers = async () => {

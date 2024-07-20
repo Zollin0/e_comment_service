@@ -1,3 +1,14 @@
+###登录
+POST http://127.0.0.1:33001/api/user/getUser
+Content-Type: application/json
+
+{
+    "account":"text_02",
+    "password":"123456"
+}
+
+
+
 ###查询用户信息接口
 POST http://127.0.0.1:33001/api/user/getUserInfor
 Content-Type: application/json
