@@ -55,3 +55,24 @@ exports.createUser = async (account, password) => {
         throw error;
     }
 };
+// 修改用户信息
+exports.updateUser = async (userId, nickname, avatar, password) => {
+    const sql = `
+        UPDATE 
+            yi_user
+        WHERE 
+            user_id = ?
+        SET 
+            nickname = ?,
+            avatar = ?,
+            password = ?
+
+    `;
+    const sqlParams = [userId, nickname, avatar, password];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('修改用户:', error);
+        throw error;
+    }
+};

@@ -17,3 +17,8 @@ exports.createUser = async (account, password) => {
     const createuser = await userDao.createUser(account, password);
     return createuser;
 };
+//修改用户信息
+exports.updateUser = async (userId, nickname, avatar, password) => {
+    const updateuser = await userDao.updateUser(userId, nickname, avatar, password);
+    return updateuser;
+};

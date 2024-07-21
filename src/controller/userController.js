@@ -24,3 +24,8 @@ router.post('/createUser', async (req, res, next) => {
     const result = await userService.createUser(req.body.account, req.body.password);
     res.ResultVO(0, '成功', result);
 });
+//修改用户信息
+router.post('/updateUser', async (req, res, next) => {
+    const result = await userService.updateUser(req.body.userId, req.body.nickname, req.body.avatar, req.body.password);
+    res.ResultVO(0, '成功', result);
+});
