@@ -29,3 +29,13 @@ router.post('/updateUser', async (req, res, next) => {
     const result = await userService.updateUser(req.body.userId, req.body.nickname, req.body.avatar, req.body.password);
     res.ResultVO(0, '成功', result);
 });
+//封禁用户
+router.post('/banUser', async (req, res, next) => {
+    const result = await userService.banUser(req.body.userId);
+    res.ResultVO(0, '成功', result);
+});
+//解禁用户
+router.post('/unbanUser', async (req, res, next) => {
+    const result = await userService.unbanUser(req.body.userId);
+    res.ResultVO(0, '成功', result);
+});

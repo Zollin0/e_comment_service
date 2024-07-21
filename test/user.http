@@ -7,8 +7,6 @@ Content-Type: application/json
     "password":"123456"
 }
 
-
-
 ###查询用户信息接口
 POST http://127.0.0.1:33001/api/user/getUserInfor
 Content-Type: application/json
@@ -33,4 +31,20 @@ Content-Type: application/json
     "nickname":"蔡徐坤",
     "avatar":"https://ww4.sinaimg.cn/mw690/0079telhgy1hppa43g43oj31jk1qhe7i.jpg",
     "password":"123456"
+}
+
+###封禁用户接口
+POST http://127.0.0.1:33001/api/user/banUser
+Content-Type: application/json
+
+{
+    "userId":"0190d45b-e600-700d-bdd4-dc3bab39aabf"
+}
+
+###解禁用户接口
+POST http://127.0.0.1:33001/api/user/unbanUser
+Content-Type: application/json
+
+{
+    "userId":"0190d45b-e600-700d-bdd4-dc3bab39aabf"
 }

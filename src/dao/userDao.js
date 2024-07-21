@@ -74,3 +74,37 @@ exports.updateUser = async (userId, nickname, avatar, password) => {
         throw error;
     }
 };
+// 封禁用户
+exports.banUser = async (userId) => {
+    const sql = `
+        UPDATE 
+            yi_user
+        SET 
+            is_forbidden = 1
+        WHERE 
+            user_id = ?
+    `;
+    const sqlParams = [userId];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('封禁用户失败:', error);
+    }
+};
+// 解禁用户
+exports.unbanUser = async (userId) => {
+    const sql = `
+        UPDATE 
+            yi_user
+        SET 
+            is_forbidden = 0
+        WHERE 
+            user_id = ?
+    `;
+    const sqlParams = [userId];
+    try {
+        return await db.query(sql, sqlParams);
+    } catch (error) {
+        console.error('解禁用户失败:', error);
+    }
+};
