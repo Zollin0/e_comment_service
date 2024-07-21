@@ -1,9 +1,7 @@
 const db = require('../utils/dbConnPool/mariadb');
-
-// 引入 UUIDv7 生成器
 const { v7: uuidv7 } = require('uuid');
 
-//登录
+// 登录
 exports.getUser = async (account, password) => {
     const sql = `
         SELECT 
@@ -17,7 +15,7 @@ exports.getUser = async (account, password) => {
     return await db.query(sql, sqlParams);
 };
 
-//获取用户信息
+// 获取所有用户信息
 exports.getAllUsers = async () => {
     const sql = `
         SELECT 
@@ -55,24 +53,24 @@ exports.createUser = async (account, password) => {
         throw error;
     }
 };
+
 // 修改用户信息
 exports.updateUser = async (userId, nickname, avatar, password) => {
     const sql = `
         UPDATE 
             yi_user
-        WHERE 
-            user_id = ?
         SET 
             nickname = ?,
             avatar = ?,
             password = ?
-
+        WHERE 
+            user_id = ?
     `;
-    const sqlParams = [userId, nickname, avatar, password];
+    const sqlParams = [nickname, avatar, password, userId];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
-        console.error('修改用户:', error);
+        console.error('修改用户失败:', error);
         throw error;
     }
 };
