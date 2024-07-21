@@ -19,8 +19,8 @@ POST http://127.0.0.1:33001/api/user/createUser
 Content-Type: application/json
 
 {
-    "userId":"0190c9e4-684a-7070-a326-d0b5c07d65b9",
-    "account":"text_02",
+    
+    "account":"text_05",
     "password":"123456"
 }
 
@@ -29,8 +29,8 @@ POST http://127.0.0.1:33001/api/user/updateUser
 Content-Type: application/json
 
 {
-    "userId":"0190c9e4-684a-7070-a326-d0b5c07d65b9",
+    "userId":"0190d45b-e600-700d-bdd4-dc3bab39aabf",
     "nickname":"蔡徐坤",
-    "avatar":"https://ts1.cn.mm.bing.net/th/id/R-C.e8c3d925162dbaa29668be9da3069b03?rik=%2fXe6nqrin3EIKg&riu=http%3a%2f%2fi0.hdslb.com%2fbfs%2farchive%2f6fb5532693ef77bc134d93fa5c8833c627048fb9.jpg&ehk=t%2fKA3gXIXGScX7fjCpHLCqMkJ7M4Dy1HletBHz4%2b5Wg%3d&risl=&pid=ImgRaw&r=0",
+    "avatar":"https://ww4.sinaimg.cn/mw690/0079telhgy1hppa43g43oj31jk1qhe7i.jpg",
     "password":"123456"
 }
