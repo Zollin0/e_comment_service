@@ -1,0 +1,55 @@
+###查询评论信息接口
+POST http://127.0.0.1:33001/api/comment/getComment
+Content-Type: application/json
+
+{
+    "comtSubjectId":1
+ 
+}
+
+###新增评论接口
+POST http://127.0.0.1:33001/api/comment/createComment
+Content-Type: application/json
+
+{
+    "comtSubjectId":1,
+    "commentId":2,
+    "text":"测试评论",
+    "userId":"0190c9e4-684a-7070-a326-d0b5c07d65b0"
+}
+
+###删除评论接口
+POST http://127.0.0.1:33001/api/comment/deleteComment
+Content-Type: application/json
+
+{
+    "comtSubjectId":1,
+    "commentId":2
+}
+
+###获赞接口
+POST http://127.0.0.1:33001/api/comment/thumbsUp
+Content-Type: application/json
+
+{
+    "commentId":1,
+    "comtSubjectId":1
+}
+
+###取消点赞接口
+POST http://127.0.0.1:33001/api/comment/cancelThumbsUp
+Content-Type: application/json
+
+{
+    "commentId":1,
+    "comtSubjectId":1
+}
+
+###获取历史评论接口 
+POST http://127.0.0.1:33001/api/comment/getHistoryComment
+Content-Type: application/json
+
+{
+    "comtSubjectId": 1,
+    "userId": 1
+}

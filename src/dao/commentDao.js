@@ -1,17 +1,16 @@
 const db = require('../utils/dbConnPool/mariadb');
 
 // 查询评论信息
-exports.getComt = async (cbId, comtId) => {
+exports.getComment = async (comtSubjectId) => {
     const sql = `
         SELECT 
             *
         FROM 
-            e_comt
+            yi_comment
         WHERE
-            cb_id = ?
-            AND comt_id = ?
+            comt_subject_id=?
     `;
-    const sqlParams = [cbId, comtId];
+    const sqlParams = [comtSubjectId];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
@@ -21,13 +20,13 @@ exports.getComt = async (cbId, comtId) => {
 };
 
 // 创建新评论
-exports.createComt = async (cbId, comtId, text, userId) => {
+exports.createComment = async (comtSubjectId, commentId, text, userId) => {
     const sql = `
         INSERT INTO 
-            e_comt
+            yi_comment
         (
-            cb_id,
-            comt_id,
+            comt_subject_id,
+            comment_id,
             text,
             user_id
         )
@@ -39,7 +38,7 @@ exports.createComt = async (cbId, comtId, text, userId) => {
             ?
         )
     `;
-    const sqlParams = [cbId, comtId, text, userId];
+    const sqlParams = [comtSubjectId, commentId, text, userId];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
@@ -49,15 +48,15 @@ exports.createComt = async (cbId, comtId, text, userId) => {
 };
 
 // 删除评论
-exports.deleteComt = async (cbId, comtId) => {
+exports.deleteComment = async (comtSubjectId, commentId) => {
     const sql = `
         DELETE FROM 
-            e_comt
+            yi_comment
         WHERE
-            cb_id = ?
-            AND comt_id = ?
+            comt_subject_id = ?
+            AND comment_id = ?
     `;
-    const sqlParams = [cbId, comtId];
+    const sqlParams = [comtSubjectId, commentId];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {
@@ -66,19 +65,19 @@ exports.deleteComt = async (cbId, comtId) => {
 };
 
 // 更新评论获赞数
-exports.updateThumbsUp = async (comtId, cbId) => {
+exports.updateThumbsUp = async (commentId, comtSubjectId) => {
     const sqlUpdate = `
-    UPDATE e_comt
+    UPDATE yi_comment
     SET thumbs_up = thumbs_up + 1
-    WHERE comt_id = ? AND cb_id = ?
+    WHERE comment_id = ? AND comt_subject_id = ?
 `;
 
     const sqlSelect = `
     SELECT thumbs_up
-    FROM e_comt
-    WHERE comt_id = ? AND cb_id = ?
+    FROM yi_comment
+    WHERE comment_id = ? AND comt_subject_id = ?
 `;
-    const sqlParams = [comtId, cbId];
+    const sqlParams = [commentId, comtSubjectId];
     try {
         await db.query(sqlUpdate, sqlParams);
         const result = await db.query(sqlSelect, sqlParams);
@@ -90,18 +89,18 @@ exports.updateThumbsUp = async (comtId, cbId) => {
 };
 
 // 更新评论点赞数（减少）
-exports.cancelThumbsUp = async (comtId, cbId) => {
+exports.cancelThumbsUp = async (commentId, comtSubjectId) => {
     const sqlUpdate = `
-        UPDATE e_comt
+        UPDATE yi_comment
         SET thumbs_up = thumbs_up - 1
-        WHERE comt_id = ? AND cb_id = ?
+        WHERE comment_id = ? AND comt_subject_id = ?
     `;
     const sqlSelect = `
         SELECT thumbs_up
-        FROM e_comt
-        WHERE comt_id = ? AND cb_id = ?
+        FROM yi_comment
+        WHERE comment_id = ? AND comt_subject_id = ?
     `;
-    const sqlParams = [comtId, cbId];
+    const sqlParams = [commentId, comtSubjectId];
     try {
         await db.query(sqlUpdate, sqlParams);
         const result = await db.query(sqlSelect, sqlParams);
@@ -113,21 +112,21 @@ exports.cancelThumbsUp = async (comtId, cbId) => {
 };
 
 // 查询历史评论
-exports.getHistoryComt = async (cbId, userId) => {
+exports.getHistoryComment = async (comtSubjectId, userId) => {
     const sql = `
         SELECT 
             c.text,
             c.thumbs_up,
             b.cb_title
         FROM 
-            e_comt c
+            yi_comment c
         JOIN
-            e_comt_body b ON c.cb_id = b.cb_id
+            yi_comment_body b ON c.comt_subject_id = b.comt_subject_id
         WHERE
-            c.cb_id = ?
+            c.comt_subject_id = ?
             AND c.user_id = ?
     `;
-    const sqlParams = [cbId, userId];
+    const sqlParams = [comtSubjectId, userId];
     try {
         return await db.query(sql, sqlParams);
     } catch (error) {

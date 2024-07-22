@@ -1,0 +1,36 @@
+###查询评论体信息接口
+POST http://127.0.0.1:33001/api/commentSubject/getAllCommentSubject
+Content-Type: application/json
+
+
+
+###创建评论体接口
+POST http://127.0.0.1:33001/api/commentSubject/createCommentSubject
+Content-Type: application/json
+
+{
+    "comtSubjectId":3,
+    "cbImg":"http://22225.com",
+    "cbText":"广东医123",
+    "cbTitle":"广东医213",
+    "userId":"0190c9e4-684a-7070-a326-d0b5c07d65b0"
+}
+
+###修改评论体接口
+POST http://127.0.0.1:33001/api/commentSubject/modifyCommentSubject
+Content-Type: application/json
+
+{
+    "comtSubjectId":2,
+    "cbImg":"http://2222.com",
+    "cbText":"广东医666",
+    "cbTitle":"广东医888FEWRF ",
+    "userId":"0190c9e4-684a-7070-a326-d0b5c07d65b0"
+}
+###删除评论体接口
+POST http://127.0.0.1:33001/api/commentSubject/deleteCommentSubject
+Content-Type: application/json
+
+{
+    "comtSubjectId":2
+}
