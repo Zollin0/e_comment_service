@@ -11,12 +11,8 @@ router.post('/getUser', async (req, res, next) => {
 
 //查询用户信息
 router.post('/getUserInfor', async (req, res, next) => {
-    try {
-        const result = await userService.getAllUsers();
-        res.json({ code: 0, message: '成功', data: result });
-    } catch (error) {
-        next(error);
-    }
+    const result = await userService.getAllUsers();
+    res.ResultVO(0, '成功', result);
 });
 
 //创建新用户
